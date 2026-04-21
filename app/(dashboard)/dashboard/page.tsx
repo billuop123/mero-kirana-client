@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import { getServerToken } from "@/lib/utils/auth";
 import { DailySummary, TopProduct, LowStockProduct, Shop } from "@/lib/types";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/v1";
+const API = process.env.API_URL ?? "http://localhost:4000/v1";
 
 async function apiFetch<T>(path: string, token: string): Promise<T> {
   const res = await fetch(`${API}${path}`, {

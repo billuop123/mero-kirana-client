@@ -3,7 +3,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/v1";
+const API = process.env.API_URL ?? "http://localhost:4000/v1";
 
 export type AuthState = {
   error?: string;

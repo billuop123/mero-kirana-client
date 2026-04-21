@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ShoppingCart } from "lucide-react";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/v1";
+const API = process.env.API_URL ?? "http://localhost:4000/v1";
 
 type BillItem = {
   id: string;

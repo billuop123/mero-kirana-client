@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 import { unstable_cache } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/v1";
+const API = process.env.API_URL ?? "http://localhost:4000/v1";
 
 // Cache shop lookup per token for 5 minutes — prevents a /shops/me hit on every keystroke
 function getCachedShop(token: string) {

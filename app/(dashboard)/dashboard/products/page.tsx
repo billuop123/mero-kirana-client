@@ -5,7 +5,7 @@ import { Product, Shop } from "@/lib/types";
 import ProductSearchInput from "@/components/products/ProductSearchInput";
 import NoShopPrompt from "@/components/NoShopPrompt";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/v1";
+const API = process.env.API_URL ?? "http://localhost:4000/v1";
 
 const CATEGORY_LABELS: Record<string, string> = {
   grocery: "Grocery",

@@ -3,7 +3,7 @@ import { getServerToken } from "@/lib/utils/auth";
 import ShopForm from "@/components/settings/ShopForm";
 import { Shop } from "@/lib/types";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/v1";
+const API = process.env.API_URL ?? "http://localhost:4000/v1";
 
 export default async function SettingsPage() {
   const token = await getServerToken();

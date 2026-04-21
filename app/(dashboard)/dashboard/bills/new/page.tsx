@@ -5,7 +5,7 @@ import { Product, Shop, InventoryItem } from "@/lib/types";
 import POSInterface from "@/components/bills/POSInterface";
 import NoShopPrompt from "@/components/NoShopPrompt";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/v1";
+const API = process.env.API_URL ?? "http://localhost:4000/v1";
 
 export default async function NewBillPage() {
   const token = await getServerToken();

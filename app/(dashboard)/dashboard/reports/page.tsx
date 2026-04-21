@@ -9,7 +9,7 @@ import { TrendingUp, Receipt, Wallet, AlertTriangle, Package, ArrowUpRight } fro
 import PeriodSelector from "@/components/reports/PeriodSelector";
 import NoShopPrompt from "@/components/NoShopPrompt";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/v1";
+const API = process.env.API_URL ?? "http://localhost:4000/v1";
 const VALID_PERIODS = ["daily", "weekly", "monthly"];
 
 const CATEGORY_LABELS: Record<string, string> = {

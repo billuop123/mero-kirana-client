@@ -5,7 +5,7 @@ import { Shop, UdhariCustomer } from "@/lib/types";
 import { Phone, User, Receipt, HandCoins } from "lucide-react";
 import NoShopPrompt from "@/components/NoShopPrompt";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/v1";
+const API = process.env.API_URL ?? "http://localhost:4000/v1";
 
 export default async function UdhariPage() {
   const token = await getServerToken();

@@ -7,7 +7,7 @@ import BillActions from "@/components/bills/BillActions";
 import BillQRCode from "@/components/bills/BillQRCode";
 import NoShopPrompt from "@/components/NoShopPrompt";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/v1";
+const API = process.env.API_URL ?? "http://localhost:4000/v1";
 
 type Props = { params: Promise<{ billId: string }> };
 

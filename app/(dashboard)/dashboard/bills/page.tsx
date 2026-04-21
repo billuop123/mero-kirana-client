@@ -7,7 +7,7 @@ import { Bill, Shop } from "@/lib/types";
 import DateFilter from "@/components/bills/DateFilter";
 import NoShopPrompt from "@/components/NoShopPrompt";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/v1";
+const API = process.env.API_URL ?? "http://localhost:4000/v1";
 
 function todayISO() {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kathmandu" }).format(new Date());
