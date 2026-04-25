@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Noto_Sans_Devanagari } from "next/font/google";
+import { Suspense } from "react";
+import NavigationLoader from "@/components/NavigationLoader";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -91,9 +93,14 @@ export default function RootLayout({
       className={`${plusJakarta.variable} ${notoDevanagari.variable} h-full antialiased`}
     >
       <head>
-        <meta name="theme-color" content="#111827" />
+        <meta name="theme-color" content="#1c1917" />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Suspense>
+          <NavigationLoader />
+        </Suspense>
+        {children}
+      </body>
     </html>
   );
 }

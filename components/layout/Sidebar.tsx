@@ -12,12 +12,11 @@ import {
   BarChart2,
   Settings,
   LogOut,
-  ShoppingCart,
+  ShoppingBag,
 } from "lucide-react";
 
 const nav = [
   { href: "/dashboard", label: "Dashboard", Icon: LayoutDashboard },
-  { href: "/dashboard/bills/new", label: "New Bill", Icon: Plus, highlight: true },
   { href: "/dashboard/bills", label: "Bills", Icon: Receipt },
   { href: "/dashboard/products", label: "Products", Icon: Package },
   { href: "/dashboard/inventory", label: "Inventory", Icon: Warehouse },
@@ -30,40 +29,43 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-60 shrink-0 flex flex-col bg-white border-r border-gray-100 min-h-screen">
+    <aside className="w-60 shrink-0 flex flex-col bg-[#1c1917] min-h-screen">
       {/* Logo */}
-      <div className="h-16 flex items-center gap-2.5 px-5 border-b border-gray-100">
-        <ShoppingCart size={18} className="text-gray-900" />
-        <span className="font-bold text-sm tracking-tight text-gray-900">आफ्नो Kirana</span>
+      <div className="h-16 flex items-center gap-2.5 px-5 border-b border-[#292524]">
+        <div className="w-7 h-7 rounded-lg bg-orange-500 flex items-center justify-center shrink-0">
+          <ShoppingBag size={14} className="text-white" />
+        </div>
+        <span className="font-bold text-sm tracking-tight text-white">
+          आफ्नो Kirana
+        </span>
+      </div>
+
+      {/* New Bill — primary action */}
+      <div className="px-3 pt-4 pb-1">
+        <Link
+          href="/dashboard/bills/new"
+          className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold bg-orange-500 text-white hover:bg-orange-600 active:scale-[0.97] transition-all"
+        >
+          <Plus size={15} />
+          New Bill
+        </Link>
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 px-3 py-4 flex flex-col gap-0.5">
-        {nav.map(({ href, label, Icon, highlight }) => {
+      <nav className="flex-1 px-3 py-2 flex flex-col gap-0.5">
+        {nav.map(({ href, label, Icon }) => {
           const active =
-            href === "/dashboard" ? pathname === "/dashboard" : pathname.startsWith(href);
-
-          if (highlight) {
-            return (
-              <Link
-                key={href}
-                href={href}
-                className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-semibold bg-gray-900 text-white hover:bg-gray-700 transition-colors mt-1 mb-1"
-              >
-                <Icon size={15} />
-                {label}
-              </Link>
-            );
-          }
-
+            href === "/dashboard"
+              ? pathname === "/dashboard"
+              : pathname.startsWith(href);
           return (
             <Link
               key={href}
               href={href}
               className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                 active
-                  ? "bg-gray-100 text-gray-900"
-                  : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+                  ? "bg-[#292524] text-orange-400"
+                  : "text-stone-400 hover:bg-[#292524] hover:text-stone-200"
               }`}
             >
               <Icon size={15} className="shrink-0" />
@@ -74,11 +76,11 @@ export default function Sidebar() {
       </nav>
 
       {/* Sign out */}
-      <div className="px-3 py-4 border-t border-gray-100">
+      <div className="px-3 py-4 border-t border-[#292524]">
         <form action="/api/auth/signout" method="POST">
           <button
             type="submit"
-            className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-gray-400 hover:bg-gray-50 hover:text-gray-700 transition-colors"
+            className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-stone-500 hover:bg-[#292524] hover:text-stone-300 transition-colors"
           >
             <LogOut size={15} />
             Sign out
