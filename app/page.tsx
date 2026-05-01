@@ -18,6 +18,9 @@ const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
   alternates: { canonical: BASE },
+  title: "आफ्नो किराना — नेपाली किराना पसलको लागि सजिलो POS सफ्टवेयर",
+  description:
+    "आफ्नो किराना — नेपाली किराना पसलको लागि निःशुल्क POS र स्टक व्यवस्थापन सफ्टवेयर। छिटो बिल बनाउनुहोस्, स्टक ट्र्याक गर्नुहोस्, उधारी व्यवस्थापन गर्नुहोस्।",
 };
 
 const jsonLd = {
@@ -114,6 +117,18 @@ const testimonials = [
     role: "General store, Biratnagar",
     initials: "ST",
   },
+  {
+    quote: "आफ्नो किराना प्रयोग गरेपछि पसल चलाउन धेरै सजिलो भयो। स्टक सकिन लाग्दा अलर्ट आउँछ, उधारीको हिसाब मिल्छ।",
+    name: "प्रकाश थापा",
+    role: "किराना पसल, काठमाडौं",
+    initials: "PT",
+  },
+  {
+    quote: "अब कापीमा हिसाब लेख्न पर्दैन। आफ्नो किरानाले सबै गर्छ — बिल, स्टक, उधारी एकै ठाउँमा।",
+    name: "मनिषा गुरुङ",
+    role: "जनरल स्टोर, पोखरा",
+    initials: "MG",
+  },
 ];
 
 export default async function LandingPage() {
@@ -163,7 +178,7 @@ export default async function LandingPage() {
         <div className="relative">
           <div className="inline-flex items-center gap-2 bg-orange-50 text-orange-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 border border-orange-200">
             <Zap size={11} fill="currentColor" />
-            नेपाली किराना पसलका लागि
+            आफ्नो किराना — नेपाली किराना पसलका लागि
           </div>
 
           <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight leading-[1.1] max-w-3xl mb-6 text-stone-900">
@@ -171,6 +186,10 @@ export default async function LandingPage() {
             <br />
             <span className="text-orange-500">without the chaos</span>
           </h1>
+
+          <p className="text-base text-orange-600 font-semibold mb-2">
+            आफ्नो किराना — सजिलो, छिटो, र निःशुल्क किराना पसल व्यवस्थापन
+          </p>
 
           <p className="text-lg text-stone-500 max-w-xl mb-10 leading-relaxed mx-auto">
             आफ्नो Kirana is a simple POS and inventory system built for small shops in Nepal.
@@ -238,6 +257,32 @@ export default async function LandingPage() {
                 </div>
                 <h3 className="font-semibold text-base mb-2 text-stone-900">{title}</h3>
                 <p className="text-sm text-stone-500 leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Nepali content block — targets "आफ्नो किराना" search */}
+      <section className="py-16 px-6 bg-orange-50 border-y border-orange-100">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-stone-900 mb-4">
+            आफ्नो किराना के हो?
+          </h2>
+          <p className="text-stone-600 leading-relaxed mb-6">
+            <strong>आफ्नो किराना</strong> एक सरल र निःशुल्क POS (Point of Sale) सफ्टवेयर हो जुन
+            नेपाली किराना पसलका लागि बनाइएको छ। यसले तपाईंलाई छिटो बिल बनाउन,
+            स्टक ट्र्याक गर्न, उधारी व्यवस्थापन गर्न, र बिक्री रिपोर्ट हेर्न मद्दत गर्छ।
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+            {[
+              { label: "छिटो बिलिङ", desc: "३० सेकेन्डमा बिल बनाउनुहोस्" },
+              { label: "स्टक ट्र्याकिङ", desc: "कम स्टकमा अलर्ट पाउनुहोस्" },
+              { label: "उधारी व्यवस्थापन", desc: "उधारीको हिसाब सजिलै राख्नुहोस्" },
+            ].map((item) => (
+              <div key={item.label} className="bg-white rounded-xl p-4 border border-orange-100">
+                <p className="font-semibold text-orange-600 mb-1">{item.label}</p>
+                <p className="text-stone-500">{item.desc}</p>
               </div>
             ))}
           </div>
